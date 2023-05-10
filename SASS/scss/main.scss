@@ -1,23 +1,52 @@
-$primary-color : #272727;
-$accent-color: #ff652f;
-$text-color: #fff;
+@import './resets';
+@import './variables';
 
-$font-weights:("regular":400,
-"medium":500,
-"bold": 700
-);
+@function weight($weight-name){
+  @return  map-get($font-weights, $weight-name );
+}
+
+@mixin flexCenter($direction){
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: $direction;
+}
+
+@mixin theme($light-theme: true){
+  @if $light-theme{
+    background: lighten($primary-color , 100%);
+    color: darken($text-color,100%);
+  }
+}
+
 body{
     background: $primary-color;
     color:$text-color;
-    font-weight: map-get($font-weights,bold );
+   
 }
 
 .main{
-    width:80%;
+     @include flexCenter(row);
+    width:80%-20%;
     margin: 0 auto;
 
 
-  #{&}_para{
-    font-weight: map-get($font-weights, bold );
+  #{&}_para1{
+    font-weight: weight(regular);
+
+    &:hover {
+      color: yellow;
+    }
   }
+  #{&}_para2 {
+    @extend .main_para1;
+    &:hover {
+      color: $accent-color;
+    }
+
+  }
+}
+
+.light{
+  @include theme($light-theme: true);
 }

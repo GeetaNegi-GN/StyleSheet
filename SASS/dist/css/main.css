@@ -1,13 +1,33 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: #272727;
   color: #fff;
-  font-weight: 700;
 }
 
 .main {
-  width: 80%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  width: 60%;
   margin: 0 auto;
 }
-.main .main_para {
-  font-weight: 700;
+.main .main_para1, .main .main_para2 {
+  font-weight: 400;
+}
+.main .main_para1:hover, .main .main_para2:hover {
+  color: yellow;
+}
+.main .main_para2:hover {
+  color: #ff652f;
+}
+
+.light {
+  background: white;
+  color: black;
 }/*# sourceMappingURL=main.css.map */
